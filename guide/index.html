@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GSA June 26 Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      background:#f0f2f7;
+      color:#1a1a2e;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased
+    }
+    .container{max-width:820px;margin:0 auto;padding:0 20px}
+
+    /* header */
+    header{
+      background:linear-gradient(135deg,#fafcff,#eef2fa);
+      border-bottom:1px solid rgba(26,115,232,.1);
+      padding:32px 0 24px;
+      text-align:center;
+      position:sticky;top:0;z-index:100;
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px)
+    }
+    header .logo{width:56px;height:56px;border-radius:14px;object-fit:cover;margin-bottom:10px;box-shadow:0 4px 16px rgba(26,115,232,.15)}
+    header h1{
+      font-size:1.5rem;font-weight:800;
+      background:linear-gradient(135deg,#1a5bbf,#0d3d7a);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      letter-spacing:-.5px
+    }
+    header p{font-size:.85rem;color:#5f6368;margin-top:4px}
+
+    /* main */
+    main{padding:32px 0 60px}
+    .contact-banner{
+      background:#fff;border-radius:12px;padding:16px 20px;margin-bottom:16px;
+      font-size:.88rem;color:#d43b3b;text-align:center;font-weight:600;
+      border:1px solid #eef0f4;box-shadow:0 2px 8px rgba(0,0,0,.03)
+    }
+    .intro-card{
+      background:#fff;border-radius:16px;padding:28px 32px;margin-bottom:32px;
+      border-left:4px solid #d0d5dd;box-shadow:0 2px 12px rgba(0,0,0,.04)
+    }
+    .intro-card h2{font-size:1.1rem;font-weight:700;color:#1a1a2e;margin-bottom:6px}
+    .intro-card p{font-size:.92rem;color:#5f6368;margin-bottom:0}
+    .intro-card p:last-child{margin-bottom:0}
+
+    /* step arrows */
+    .step-arrow{
+      display:flex;align-items:center;justify-content:center;
+      padding:8px 0;color:#98a0b0;user-select:none
+    }
+    .step-arrow svg{width:28px;height:28px;fill:#d43b3b}
+    .step-arrow .line{
+      flex:1;height:1px;max-width:60px;
+      background:linear-gradient(90deg,transparent,#d43b3b,transparent)
+    }
+    .step-arrow .arrow-icon{
+      width:24px;height:24px;margin:0 8px;
+      display:flex;align-items:center;justify-content:center
+    }
+    .step-arrow .arrow-icon svg{width:24px;height:24px;fill:#d43b3b}
+
+    /* step cards */
+    .step-card{
+      background:#fff;border-radius:16px;padding:24px 28px;
+      box-shadow:0 2px 12px rgba(0,0,0,.04);
+      border:1px solid #eef0f4;
+      transition:transform .2s,box-shadow .2s
+    }
+    .step-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.07)}
+    .step-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .step-number{
+      width:36px;height:36px;border-radius:50%;
+      background:linear-gradient(135deg,#eef2f7,#e2e7f0);
+      color:#4a5a7a;font-size:.85rem;font-weight:700;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0
+    }
+    .step-header h3{font-size:1rem;font-weight:600;color:#1a1a2e}
+    .step-card p{font-size:.88rem;color:#5f6368;margin-bottom:12px}
+    .step-card img,.step-card video{
+      width:100%;border-radius:12px;border:1px solid #eef0f4;
+      display:block;box-shadow:0 2px 8px rgba(0,0,0,.04)
+    }
+    .step-card video{background:#000;cursor:pointer}
+    .video-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:.78rem;color:#5f6368;margin-top:8px
+    }
+    .video-label svg{width:16px;height:16px;fill:#5f6368;flex-shrink:0}
+
+    /* note banner */
+    .note-banner{
+      background:linear-gradient(135deg,#fcf8f0,#faf5ea);
+      border-radius:16px;padding:22px 28px;margin:28px 0 20px;
+      border-left:4px solid #d4893b;
+      display:flex;align-items:flex-start;gap:14px;
+      box-shadow:0 2px 12px rgba(0,0,0,.03)
+    }
+    .note-banner .icon{font-size:1.35rem;flex-shrink:0;line-height:1;margin-top:2px}
+    .note-banner .content h4{font-size:.95rem;font-weight:700;color:#8a5a1a;margin-bottom:4px}
+    .note-banner .content p{font-size:.88rem;color:#6b5f4a;margin:0}
+
+    /* feedback banner */
+    .feedback-banner{
+      background:linear-gradient(135deg,#1a73e8,#0d47a1);
+      border-radius:16px;padding:28px 32px;margin:32px 0 0;
+      text-align:center;color:#fff;
+      box-shadow:0 4px 24px rgba(26,115,232,.3)
+    }
+    .feedback-banner h2{font-size:1.25rem;font-weight:700;margin-bottom:8px}
+    .feedback-banner p{font-size:.92rem;margin-bottom:6px;opacity:.92;line-height:1.5}
+    .feedback-banner .highlight{font-weight:600;color:#ffd54f}
+    .feedback-banner .btn{
+      display:inline-block;margin-top:14px;
+      background:#fff;color:#1a73e8;font-weight:700;font-size:1.05rem;
+      padding:14px 36px;border-radius:10px;text-decoration:none;
+      transition:transform .2s,box-shadow .2s;
+      box-shadow:0 2px 8px rgba(0,0,0,.1)
+    }
+    .feedback-banner .btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+
+    /* footer */
+    footer{
+      text-align:center;padding:24px 0 32px;
+      border-top:1px solid #eef0f4;color:#5f6368;font-size:.82rem
+    }
+
+    /* responsive */
+    @media(max-width:600px){
+      header{padding:24px 0 18px}
+      header .logo{width:46px;height:46px}
+      header h1{font-size:1.2rem}
+      .container{padding:0 14px}
+      main{padding:20px 0 40px}
+      .intro-card{padding:20px;border-radius:12px}
+      .intro-card h2{font-size:1rem}
+      .intro-card p{font-size:.85rem}
+      .step-card{padding:18px 16px;border-radius:12px}
+      .step-header{gap:10px}
+      .step-number{width:30px;height:30px;font-size:.75rem}
+      .step-header h3{font-size:.9rem}
+      .step-card p{font-size:.83rem}
+      .step-arrow{transform:scale(.85)}
+      .note-banner{padding:18px 16px;border-radius:12px;margin:20px 0 14px}
+      .note-banner .content h4{font-size:.88rem}
+      .note-banner .content p{font-size:.83rem}
+      .feedback-banner{padding:22px 18px;border-radius:12px;margin:24px 0 0}
+      .feedback-banner h2{font-size:1.1rem}
+      .feedback-banner p{font-size:.85rem}
+      .feedback-banner .btn{padding:12px 24px;font-size:.95rem}
+    }
+    @media(max-width:380px){
+      header h1{font-size:1.05rem}
+      .step-card{padding:14px 12px}
+      .step-header h3{font-size:.82rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img class="logo" src="assets/logo.jpeg" alt="GSA Logo" />
+      <h1>GSA26-Guide</h1>
+      <p>Step-by-step walkthrough &mdash; Image &amp; Music Generation</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="contact-banner">Aniket Daiya ( Google Student Ambassador 2026 , aniketdaiya2006@gmail.com , GID = 4836) = 9521298444, after filling feedback send screenshots on Whatsaap, it has to be forwarded to google's portal</div>
+      <div class="intro-card">
+        <h2>Welcome to the Guide</h2>
+        <p>Follow the steps below to learn how to use the image generation and music generation features. Each step includes a visual reference or a sample video to help you along the way.</p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <h3>Where to select the image feature</h3>
+        </div>
+        <p>Navigate to the image generation section in the portal. Look for the image icon or &ldquo;Generate Image&rdquo; option in the sidebar or toolbar.</p>
+        <img src="assets/1. where to select the image feature.png" alt="Where to select the image feature" loading="lazy" />
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <h3>Sample prompt for image</h3>
+        </div>
+        <p>Use a descriptive prompt like the one shown below to generate high-quality images. Be specific with subject, style, and mood.</p>
+        <img src="assets/2. sample prompt for image.png" alt="Sample prompt for image" loading="lazy" />
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <h3>Image response sample</h3>
+        </div>
+        <p>Here is an example video showing how the AI responds with a generated image based on your prompt.</p>
+        <video controls playsinline preload="metadata">
+          <source src="assets/3. image response sample.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-label">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <span>Watch demo &mdash; Image generation in action</span>
+        </div>
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">4</span>
+          <h3>Where to select the music generation</h3>
+        </div>
+        <p>Access the music generation feature from the same portal. Look for &ldquo;Generate Music&rdquo; or a music note icon in the interface.</p>
+        <img src="assets/4. where to select the music generation.png" alt="Where to select the music generation" loading="lazy" />
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">5</span>
+          <h3>Sample prompt for music</h3>
+        </div>
+        <p>Provide a prompt that describes the genre, tempo, instruments, and mood you want for the generated track.</p>
+        <img src="assets/5. sample prompt for music.png" alt="Sample prompt for music" loading="lazy" />
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">6</span>
+          <h3>Music response sample</h3>
+        </div>
+        <p>Watch the sample video below to see how the AI generates a music track from your prompt.</p>
+        <video controls playsinline preload="metadata">
+          <source src="assets/6. music response sample.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-label">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <span>Watch demo &mdash; Music generation in action</span>
+        </div>
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- NOTE BANNER before Step 7 -->
+      <div class="note-banner">
+        <span class="icon">&#9888;&#65039;</span>
+        <div class="content">
+          <h4>Important Notice</h4>
+          <p>you must fill the feedback (other wise you won't be verified with the database of google's portal )</p>
+        </div>
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-number">7</span>
+          <h3>For feedback take this link for track</h3>
+        </div>
+        <p>While filling feedback this is the link it is asking for</p>
+        <img src="assets/7. for feeback take this link for track.png" alt="For feedback take this link for track" loading="lazy" />
+      </div>
+
+      <div class="step-arrow">
+        <span class="line"></span>
+        <span class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+        <span class="line"></span>
+      </div>
+
+      <!-- NOTE BANNER after Step 7 -->
+      <div class="note-banner">
+        <span class="icon">&#9888;&#65039;</span>
+        <div class="content">
+          <h4>Important Notice</h4>
+          <p>When asked what tools used , in feedback fill ; gemini canvas , lyria and gemini chat )</p>
+        </div>
+      </div>
+
+      <div class="feedback-banner">
+        <h2>Feedback Form Link</h2>
+        <p>You <span class="highlight">must</span> fill this form to get your certificate &mdash; it is crucial for your certificate validation.</p>
+        <p>After filling, share the screenshot on WhatsApp (details given at the very top of this page).</p>
+        <a class="btn" href="https://producttrialfeedback.geministudentambassador.com/" target="_blank" rel="noopener noreferrer">Fill Feedback Form</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 GSA &mdash; June 26 Guide. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.step-card video').forEach(v => {
+      v.addEventListener('click', () => { if (v.paused) v.play(); else v.pause(); });
+    });
+  </script>
+</body>
+</html>
